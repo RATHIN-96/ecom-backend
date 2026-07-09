@@ -32,6 +32,7 @@ from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 from rest_framework.permissions import IsAdminUser
+from rest_framework.permissions import IsAuthenticated
 
 
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Image, Spacer
@@ -41,6 +42,8 @@ from reportlab.lib.units import inch
 from reportlab.pdfbase import pdfmetrics
 from reportlab.lib.enums import TA_CENTER
 from io import BytesIO
+from decimal import Decimal
+
 
 from rest_framework.parsers import MultiPartParser, FormParser
 
@@ -188,6 +191,7 @@ class UserListAPIView(generics.ListAPIView):
     serializer_class = UserSerializer
 
     permission_classes = [permissions.AllowAny]
+
 
 class ToggleUserStatusAPIView(APIView):
 
@@ -383,7 +387,7 @@ class CartItemDetail(generics.RetrieveUpdateDestroyAPIView):
             cart__user=self.request.user
         )
 
-from rest_framework.permissions import IsAuthenticated
+
 
 class PlaceOrderAPIView(APIView):
 
@@ -404,10 +408,21 @@ class PlaceOrderAPIView(APIView):
                 status=status.HTTP_400_BAD_REQUEST
             )
 
-        total = 0
+        total = Decimal("0.00")
 
         for item in cart_items:
-            total += item.product.price * item.quantity
+
+            if item.product.discount_percentage > 0:
+
+                discounted_price = item.product.price - (
+                    item.product.price * Decimal(item.product.discount_percentage) / Decimal("100")
+            )
+
+            else:
+
+                discounted_price = item.product.price
+
+            total += discounted_price * item.quantity
 
         order = Order.objects.create(
             user=request.user,
@@ -421,11 +436,30 @@ class PlaceOrderAPIView(APIView):
 
         for item in cart_items:
 
+            if item.product.discount_percentage > 0:
+
+                discounted_price = item.product.price - (
+
+                    item.product.price *
+                    Decimal(item.product.discount_percentage) /
+                    Decimal("100")
+
+                )
+
+            else:
+
+                discounted_price = item.product.price
+
             OrderItem.objects.create(
+
                 order=order,
+
                 product=item.product,
+
                 quantity=item.quantity,
-                price=item.product.price
+
+                price=discounted_price
+
             )
 
         cart_items.delete()
@@ -599,8 +633,23 @@ class CreatePaymentAPIView(APIView):
 
         total = 0
 
+        total = Decimal("0.00")
+
         for item in cart_items:
-            total += item.product.price * item.quantity
+
+            if item.product.discount_percentage > 0:
+
+                discounted_price = item.product.price - (
+                    item.product.price *
+                    Decimal(item.product.discount_percentage) /
+                    Decimal("100")
+                )
+
+            else:
+
+                discounted_price = item.product.price
+
+        total += discounted_price * item.quantity
 
         # 1️⃣ Create Pending Order
 
@@ -663,6 +712,7 @@ class VerifyPaymentAPIView(APIView):
             )
 
             # Update Payment Details
+            
             order.payment_id = razorpay_payment_id
             order.payment_status = "Success"
             order.status = "Paid"
@@ -675,12 +725,26 @@ class VerifyPaymentAPIView(APIView):
             # Create Order Items
             for item in cart_items:
 
+                if item.product.discount_percentage > 0:
+
+                    discounted_price = item.product.price - (
+
+                        item.product.price *
+                        Decimal(item.product.discount_percentage) /
+                        Decimal("100")
+
+                    )
+
+                else:
+
+                    discounted_price = item.product.price
+
                 OrderItem.objects.create(
 
                     order=order,
                     product=item.product,
                     quantity=item.quantity,
-                    price=item.product.price
+                    price=discounted_price
 
                 )
 

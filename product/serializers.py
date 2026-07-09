@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Product
 from django.contrib.auth.models import User
+from django.db.models import Avg
 
 from .models import *
 
@@ -12,6 +13,8 @@ class CategorySerializer(serializers.ModelSerializer):
         model = Category
         fields = '__all__'
 
+from django.db.models import Avg
+
 class ProductSerializer(serializers.ModelSerializer):
 
     category_id = serializers.PrimaryKeyRelatedField(
@@ -22,17 +25,54 @@ class ProductSerializer(serializers.ModelSerializer):
 
     category = CategorySerializer(read_only=True)
 
+    average_rating = serializers.SerializerMethodField()
+
+    review_count = serializers.SerializerMethodField()
+
+    discounted_price = serializers.SerializerMethodField()
+
     class Meta:
-            model = Product
-            fields = [
-                'id',
-                'name',
-                'price',
-                'description',
-                'image',
-                'category',
-                'category_id'
+
+        model = Product
+
+        fields = [
+            'id',
+            'name',
+            'price',
+            'description',
+            'image',
+            'category',
+            'category_id',
+            'average_rating',
+            'review_count',
+            'discount_percentage',
+            'discounted_price',
             ]
+
+    def get_average_rating(self, obj):
+
+        avg = obj.reviews.aggregate(
+            Avg('rating')
+        )['rating__avg']
+
+        if avg:
+            return round(avg, 1)
+
+        return 0
+
+    def get_review_count(self, obj):
+
+        return obj.reviews.count()
+    
+    def get_discounted_price(self, obj):
+
+        if obj.discount_percentage > 0:
+
+            discount = (obj.price * obj.discount_percentage) / 100
+
+            return round(obj.price - discount, 2)
+
+        return obj.price
 
 
 

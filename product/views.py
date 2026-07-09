@@ -712,16 +712,32 @@ class DownloadInvoiceAPIView(APIView):
 
         try:
 
-            order = Order.objects.get(
-                id=pk,
-                user=request.user
-            )
+            # Admin can download any invoice
+
+            if request.user.is_staff:
+
+                order = Order.objects.get(id=pk)
+
+                # Customer can download only their own invoice
+
+            else:
+
+                order = Order.objects.get(
+
+                    id=pk,
+
+                    user=request.user
+
+                )
 
         except Order.DoesNotExist:
 
             return Response(
+
                 {"message": "Order Not Found"},
+
                 status=404
+
             )
 
         buffer = BytesIO()

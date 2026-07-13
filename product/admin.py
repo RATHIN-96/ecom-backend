@@ -7,6 +7,7 @@ from.models import CartItem
 from.models import Wishlist
 from.models import Order
 from.models import OrderItem
+from .models import Size
 
 # Register your models here.
 
@@ -16,6 +17,7 @@ from.models import OrderItem
 admin.site.register(Product)
 admin.site.register(Profile)
 admin.site.register(Category)
+admin.site.register(Size)
 admin.site.register(Cart)
 admin.site.register(CartItem)
 admin.site.register(Wishlist)

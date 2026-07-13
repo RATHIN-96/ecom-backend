@@ -14,7 +14,16 @@ class Category(models.Model):
     def __str__(self):
         return self.name
     
-    
+class Size(models.Model):
+
+    name = models.CharField(
+        max_length=20,
+        unique=True
+    )
+
+    def __str__(self):
+
+        return self.name  
 
 
 class Product(models.Model):
@@ -30,6 +39,8 @@ class Product(models.Model):
     discount_percentage = models.PositiveIntegerField(default=0)
     description = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to='product_images/', null=True, blank=True)
+    sizes = models.ManyToManyField(Size,blank=True)
+    has_size = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name

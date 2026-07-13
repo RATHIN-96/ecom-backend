@@ -470,6 +470,87 @@ class PlaceOrderAPIView(APIView):
             "order_id": order.id
 
         })
+    
+class BuyNowOrderAPIView(APIView):
+
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+
+        product_id = request.data.get("product_id")
+        quantity = int(request.data.get("quantity", 1))
+
+        name = request.data.get("name")
+        phone = request.data.get("phone")
+        address = request.data.get("address")
+
+        try:
+
+            product = Product.objects.get(id=product_id)
+
+        except Product.DoesNotExist:
+
+            return Response(
+                {"message": "Product not found"},
+                status=status.HTTP_404_NOT_FOUND
+            )
+
+        # Discount Price
+
+        if product.discount_percentage > 0:
+
+            discounted_price = product.price - (
+
+                product.price *
+                Decimal(product.discount_percentage) /
+                Decimal("100")
+
+            )
+
+        else:
+
+            discounted_price = product.price
+
+        total = discounted_price * quantity
+
+        order = Order.objects.create(
+
+            user=request.user,
+
+            name=name,
+
+            phone=phone,
+
+            address=address,
+
+            total_price=total,
+
+            status="Pending",
+
+            payment_status="Pending"
+
+        )
+
+        OrderItem.objects.create(
+
+            order=order,
+
+            product=product,
+
+            quantity=quantity,
+
+            price=discounted_price
+
+        )
+
+        return Response({
+
+            "message": "Buy Now Order Placed Successfully",
+
+            "order_id": order.id
+
+        })
+    
 
 class CancelOrderAPIView(APIView):
 
@@ -525,6 +606,7 @@ class CancelOrderAPIView(APIView):
                 "message": "Order Not Found"
 
             }, status=status.HTTP_404_NOT_FOUND)  
+        
 
 class ChangePasswordAPIView(APIView):
 
@@ -683,6 +765,98 @@ class CreatePaymentAPIView(APIView):
             "key": settings.RAZORPAY_KEY_ID
         })
     
+class BuyNowCreatePaymentAPIView(APIView):
+
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+
+        name = request.data.get("name")
+        phone = request.data.get("phone")
+        address = request.data.get("address")
+
+        product_id = request.data.get("product_id")
+        quantity = int(request.data.get("quantity", 1))
+
+        try:
+
+            product = Product.objects.get(id=product_id)
+
+        except Product.DoesNotExist:
+
+            return Response(
+                {"error": "Product not found"},
+                status=status.HTTP_404_NOT_FOUND
+            )
+
+        # Discount Calculation
+
+        if product.discount_percentage > 0:
+
+            discounted_price = product.price - (
+
+                product.price *
+                Decimal(product.discount_percentage) /
+                Decimal("100")
+
+            )
+
+        else:
+
+            discounted_price = product.price
+
+        total = discounted_price * quantity
+
+        # Create Pending Order
+
+        order = Order.objects.create(
+
+            user=request.user,
+
+            name=name,
+
+            phone=phone,
+
+            address=address,
+
+            total_price=total,
+
+            status="Pending",
+
+            payment_status="Pending"
+
+        )
+
+        # Create Razorpay Order
+
+        payment = client.order.create({
+
+            "amount": int(total * 100),
+
+            "currency": "INR",
+
+            "payment_capture": 1
+
+        })
+
+        # Save Razorpay Order ID
+
+        order.razorpay_order_id = payment["id"]
+
+        order.save()
+
+        return Response({
+
+            "order_id": payment["id"],
+
+            "amount": payment["amount"],
+
+            "currency": payment["currency"],
+
+            "key": settings.RAZORPAY_KEY_ID
+
+        })
+    
 class VerifyPaymentAPIView(APIView):
 
     permission_classes = [IsAuthenticated]
@@ -766,6 +940,113 @@ class VerifyPaymentAPIView(APIView):
                 "message": str(e)
 
             }, status=status.HTTP_400_BAD_REQUEST)
+        
+
+class BuyNowVerifyPaymentAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+
+        razorpay_order_id = request.data.get("razorpay_order_id")
+        razorpay_payment_id = request.data.get("razorpay_payment_id")
+        razorpay_signature = request.data.get("razorpay_signature")
+
+        try:
+
+            # Verify Razorpay Signature
+            client.utility.verify_payment_signature({
+
+                "razorpay_order_id": razorpay_order_id,
+                "razorpay_payment_id": razorpay_payment_id,
+                "razorpay_signature": razorpay_signature
+
+            })
+
+            # Get Pending Order
+            order = Order.objects.get(
+                user=request.user,
+                razorpay_order_id=razorpay_order_id,
+                payment_status="Pending"
+            )
+
+            # Update Payment Details
+            
+            order.payment_id = razorpay_payment_id
+            order.payment_status = "Success"
+            order.status = "Paid"
+            order.save()
+
+            product_id = request.data.get("product_id")
+            quantity = int(request.data.get("quantity", 1))
+
+            try:
+
+                product = Product.objects.get(id=product_id)
+
+            except Product.DoesNotExist:
+
+                return Response({
+
+                    "success": False,
+                    "message": "Product not found"
+
+                }, status=status.HTTP_404_NOT_FOUND)
+
+        # Discount Price
+
+            if product.discount_percentage > 0:
+
+                discounted_price = product.price - (
+
+                    product.price *
+                    Decimal(product.discount_percentage) /
+                    Decimal("100")
+
+                )
+
+            else:
+
+                    discounted_price = product.price
+
+            OrderItem.objects.create(
+
+                order=order,
+
+                product=product,
+
+                quantity=quantity,
+
+                price=discounted_price
+
+            )
+          
+
+            
+
+            return Response({
+
+                "success": True,
+                "message": "Payment Verified Successfully"
+
+            })
+
+        except Exception as e:
+
+            return Response({
+
+                "success": False,
+                "message": str(e)
+
+            }, status=status.HTTP_400_BAD_REQUEST)
+
+
+class SizeList(generics.ListCreateAPIView):
+
+    queryset = Size.objects.all()
+
+    serializer_class = SizeSerializer
+
+    permission_classes = [AllowAny]
         
 
 class DownloadInvoiceAPIView(APIView):

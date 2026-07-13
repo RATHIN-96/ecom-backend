@@ -27,6 +27,7 @@ from django.conf.urls.static import static
 
 
 
+
 urlpatterns = [
     path('', views.home, name='home'),
     path('admin/', admin.site.urls),
@@ -47,6 +48,9 @@ urlpatterns = [
     path('orders/', OrderList.as_view()),
     path('orders/<int:pk>/', OrderDetail.as_view()),
     path('place-order/', PlaceOrderAPIView.as_view()),
+    path("buy-now-order/", BuyNowOrderAPIView.as_view()),
+    path("buy-now-create-payment/", BuyNowCreatePaymentAPIView.as_view()),
+    path("buy-now-verify-payment/", BuyNowVerifyPaymentAPIView.as_view()),
     path('reviews/', views.ReviewList.as_view()),
     path('reviews/<int:pk>/', views.ReviewDetail.as_view()),
     path("create-payment/", CreatePaymentAPIView.as_view()),
@@ -56,6 +60,7 @@ urlpatterns = [
     path('users/', UserListAPIView.as_view()),
     path('users/<int:pk>/toggle-status/',ToggleUserStatusAPIView.as_view()),
     path('admin-dashboard/',AdminDashboardAPIView.as_view()),
+    path("sizes/", SizeList.as_view()),
     
     
 

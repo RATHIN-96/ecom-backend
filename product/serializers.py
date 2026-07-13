@@ -3,6 +3,7 @@ from .models import Product
 from django.contrib.auth.models import User
 from django.db.models import Avg
 
+
 from .models import *
 
 from .models import Profile
@@ -13,7 +14,12 @@ class CategorySerializer(serializers.ModelSerializer):
         model = Category
         fields = '__all__'
 
-from django.db.models import Avg
+
+class SizeSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Size
+        fields = ['id', 'name']
 
 class ProductSerializer(serializers.ModelSerializer):
 
@@ -31,6 +37,15 @@ class ProductSerializer(serializers.ModelSerializer):
 
     discounted_price = serializers.SerializerMethodField()
 
+    sizes = SizeSerializer(many=True, read_only=True)
+
+    size_ids = serializers.PrimaryKeyRelatedField(
+        queryset=Size.objects.all(),
+        many=True,
+        source='sizes',
+        write_only=True
+    )
+
     class Meta:
 
         model = Product
@@ -46,6 +61,9 @@ class ProductSerializer(serializers.ModelSerializer):
             'average_rating',
             'review_count',
             'discount_percentage',
+            'has_size',
+            'sizes',
+            'size_ids',
             'discounted_price',
             ]
 

@@ -373,9 +373,28 @@ class CartItemList(generics.ListCreateAPIView):
             user=self.request.user
         )
 
-        serializer.save(cart=cart)
+        product = serializer.validated_data["product"]
+        quantity = serializer.validated_data.get("quantity", 1)
+        size = serializer.validated_data.get("size", None)
 
-#
+        cart_item = CartItem.objects.filter(
+            cart=cart,
+            product=product,
+            size=size
+        ).first()
+
+        if cart_item:
+
+            cart_item.quantity += quantity
+            cart_item.save()
+
+        else:
+
+            serializer.save(
+                cart=cart
+            )
+
+
 
 class CartItemDetail(generics.RetrieveUpdateDestroyAPIView):
 
@@ -458,6 +477,8 @@ class PlaceOrderAPIView(APIView):
 
                 quantity=item.quantity,
 
+                size=item.size,
+
                 price=discounted_price
 
             )
@@ -479,7 +500,7 @@ class BuyNowOrderAPIView(APIView):
 
         product_id = request.data.get("product_id")
         quantity = int(request.data.get("quantity", 1))
-
+        size_id = request.data.get("size_id")
         name = request.data.get("name")
         phone = request.data.get("phone")
         address = request.data.get("address")
@@ -494,6 +515,20 @@ class BuyNowOrderAPIView(APIView):
                 {"message": "Product not found"},
                 status=status.HTTP_404_NOT_FOUND
             )
+        
+        size = None
+
+        if size_id:
+
+            try:
+                size = Size.objects.get(id=size_id)
+
+            except Size.DoesNotExist:
+
+                return Response(
+                    {"message": "Invalid size"},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
 
         # Discount Price
 
@@ -539,6 +574,8 @@ class BuyNowOrderAPIView(APIView):
 
             quantity=quantity,
 
+            size=size,
+
             price=discounted_price
 
         )
@@ -550,6 +587,7 @@ class BuyNowOrderAPIView(APIView):
             "order_id": order.id
 
         })
+    
     
 
 class CancelOrderAPIView(APIView):
@@ -777,6 +815,7 @@ class BuyNowCreatePaymentAPIView(APIView):
 
         product_id = request.data.get("product_id")
         quantity = int(request.data.get("quantity", 1))
+        size_id = request.data.get("size_id")
 
         try:
 
@@ -788,6 +827,21 @@ class BuyNowCreatePaymentAPIView(APIView):
                 {"error": "Product not found"},
                 status=status.HTTP_404_NOT_FOUND
             )
+        
+        size = None
+
+        if size_id:
+
+            try:
+
+                size = Size.objects.get(id=size_id)
+
+            except Size.DoesNotExist:
+
+                return Response(
+                    {"error": "Invalid size"},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
 
         # Discount Calculation
 

@@ -186,15 +186,35 @@ class CategorySerializer(serializers.ModelSerializer):
 class CartItemSerializer(serializers.ModelSerializer):
 
     product = ProductSerializer(read_only=True)
+
     product_id = serializers.PrimaryKeyRelatedField(
         queryset=Product.objects.all(),
         source='product',
         write_only=True
     )
 
+    size = SizeSerializer(read_only=True)
+
+    size_id = serializers.PrimaryKeyRelatedField(
+        queryset=Size.objects.all(),
+        source='size',
+        write_only=True,
+        required=False,
+        allow_null=True
+    )
+
     class Meta:
+
         model = CartItem
-        fields = ['id', 'product', 'product_id', 'quantity']
+
+        fields = [
+            'id',
+            'product',
+            'product_id',
+            'quantity',
+            'size',
+            'size_id'
+        ]
 
 class CartSerializer(serializers.ModelSerializer):
     items = CartItemSerializer(many=True, read_only=True)

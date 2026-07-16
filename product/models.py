@@ -79,6 +79,13 @@ class CartItem(models.Model):
 
     quantity = models.PositiveIntegerField(default=1)
 
+    size = models.ForeignKey(
+        Size,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True
+    )
+
     def __str__(self):
         return self.product.name
     
@@ -191,6 +198,13 @@ class OrderItem(models.Model):
     )
 
     quantity = models.PositiveIntegerField(default=1)
+
+    size = models.ForeignKey(
+        Size,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True
+    )
 
     price = models.DecimalField(
         max_digits=10,

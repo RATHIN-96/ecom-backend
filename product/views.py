@@ -43,7 +43,10 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.lib.enums import TA_CENTER
 from io import BytesIO
 from decimal import Decimal
+import requests
+import urllib3
 
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 from rest_framework.parsers import MultiPartParser, FormParser
 
@@ -417,6 +420,10 @@ class PlaceOrderAPIView(APIView):
         name = request.data.get("name")
         phone = request.data.get("phone")
         address = request.data.get("address")
+        state = request.data.get("state")
+        district = request.data.get("district")
+        postoffice = request.data.get("postoffice")
+        pincode = request.data.get("pincode")       
 
         cart = Cart.objects.get(user=request.user)
         cart_items = CartItem.objects.filter(cart=cart)
@@ -444,13 +451,29 @@ class PlaceOrderAPIView(APIView):
             total += discounted_price * item.quantity
 
         order = Order.objects.create(
+
             user=request.user,
+
             name=name,
+
             phone=phone,
+
             address=address,
+
+            state=state,
+
+            district=district,
+
+            postoffice=postoffice,
+
+            pincode=pincode,
+
             total_price=total,
+
             status="Pending",
+
             payment_status="Pending"
+
         )
 
         for item in cart_items:
@@ -504,6 +527,10 @@ class BuyNowOrderAPIView(APIView):
         name = request.data.get("name")
         phone = request.data.get("phone")
         address = request.data.get("address")
+        state = request.data.get("state")
+        district = request.data.get("district")
+        postoffice = request.data.get("postoffice")
+        pincode = request.data.get("pincode")
 
         try:
 
@@ -557,6 +584,14 @@ class BuyNowOrderAPIView(APIView):
             phone=phone,
 
             address=address,
+
+            state=state,
+
+            district=district,
+
+            postoffice=postoffice,
+
+            pincode=pincode,
 
             total_price=total,
 
@@ -813,6 +848,11 @@ class BuyNowCreatePaymentAPIView(APIView):
         phone = request.data.get("phone")
         address = request.data.get("address")
 
+        state = request.data.get("state")
+        district = request.data.get("district")
+        postoffice = request.data.get("postoffice")
+        pincode = request.data.get("pincode")
+
         product_id = request.data.get("product_id")
         quantity = int(request.data.get("quantity", 1))
         size_id = request.data.get("size_id")
@@ -872,6 +912,14 @@ class BuyNowCreatePaymentAPIView(APIView):
             phone=phone,
 
             address=address,
+
+            state=state,
+
+            district=district,
+
+            postoffice=postoffice,
+
+            pincode=pincode,
 
             total_price=total,
 
@@ -1005,6 +1053,10 @@ class BuyNowVerifyPaymentAPIView(APIView):
         razorpay_payment_id = request.data.get("razorpay_payment_id")
         razorpay_signature = request.data.get("razorpay_signature")
 
+        # print("Product ID:", request.data.get("product_id"))
+        # print("Size ID:", request.data.get("size_id"))
+        # print("Request Data:", request.data)        
+
         try:
 
             # Verify Razorpay Signature
@@ -1032,6 +1084,7 @@ class BuyNowVerifyPaymentAPIView(APIView):
 
             product_id = request.data.get("product_id")
             quantity = int(request.data.get("quantity", 1))
+            size_id = request.data.get("size_id")
 
             try:
 
@@ -1045,6 +1098,25 @@ class BuyNowVerifyPaymentAPIView(APIView):
                     "message": "Product not found"
 
                 }, status=status.HTTP_404_NOT_FOUND)
+            
+            size = None
+
+            if size_id:
+
+                try:
+
+                    size = Size.objects.get(id=size_id)
+
+                except Size.DoesNotExist:
+
+                    return Response({
+
+                        "success": False,
+                        "message": "Invalid size"
+
+                    }, status=status.HTTP_400_BAD_REQUEST)
+            
+            
 
         # Discount Price
 
@@ -1069,6 +1141,8 @@ class BuyNowVerifyPaymentAPIView(APIView):
                 product=product,
 
                 quantity=quantity,
+
+                size=size,
 
                 price=discounted_price
 
@@ -1249,26 +1323,37 @@ class DownloadInvoiceAPIView(APIView):
         # Products
         # -----------------------------
 
-        data = [["Product", "Qty", "Unit Price", "Total"]]
+        data = [["Product", "Size", "Qty", "Unit Price", "Total"]]
 
         for item in order.items.all():
 
             total = item.quantity * item.price
 
+            size_name = "-"
+
+            if item.size:
+
+                size_name = item.size.name
+
             data.append([
 
-            item.product.name,
-            str(item.quantity),
-            f"₹ {item.price}",
-            f"₹ {total}"
+                item.product.name,
 
-        ])
+                size_name,
+
+                str(item.quantity),
+
+                f"₹ {item.price}",
+
+                f"₹ {total}"
+
+            ])      
 
         table = Table(
 
             data,
 
-            colWidths=[280,45,75,80]
+            colWidths=[280,80,65,90,90]
 
         )
 
@@ -1338,9 +1423,10 @@ class DownloadInvoiceAPIView(APIView):
 
         <font color='#666666' size='11'>
 
-        <b>Thank you for shopping with VELORA STORE ❤️</b>
+        <b>Thank you for shopping with VELORA STORE ❤️ </b>
 
-        <br/><br/>
+        <br/>
+        <br/>
 
         Customer Support
 
@@ -1416,3 +1502,89 @@ class AdminDashboardAPIView(APIView):
             
 
         })
+
+class CheckPincodeAPIView(APIView):
+
+    permission_classes = [permissions.AllowAny]
+
+    def get(self, request, pincode):
+
+        if len(str(pincode)) != 6:
+
+            return Response({
+
+                "success": False,
+
+                "message": "Invalid Pincode"
+
+            }, status=400)
+
+        try:
+
+            response = requests.get(
+
+                f"https://api.postalpincode.in/pincode/{pincode}",
+
+                headers={
+
+                    "User-Agent": "Mozilla/5.0",
+
+                    "Accept": "application/json"
+
+                },
+
+                verify=False,
+
+                timeout=20
+
+            )
+
+            
+
+            data = response.json()
+
+            if (
+
+                data[0]["Status"] == "Success"
+
+                and
+
+                data[0]["PostOffice"]
+
+            ):
+
+                office = data[0]["PostOffice"][0]
+
+                return Response({
+
+                    "success": True,
+
+                    "state": office["State"],
+
+                    "district": office["District"],
+
+                    "postoffice": office["Name"]
+
+                })
+
+            return Response({
+
+                "success": False,
+
+                "message": "Delivery not available"
+
+            })
+
+        except Exception as e:
+
+            import traceback
+
+            traceback.print_exc()
+
+            return Response({
+
+                "success": False,
+
+                "message": str(e)
+
+            }, status=500)      

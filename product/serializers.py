@@ -243,6 +243,7 @@ class WishlistSerializer(serializers.ModelSerializer):
 class OrderItemSerializer(serializers.ModelSerializer):
 
     product = ProductSerializer(read_only=True)
+    size = SizeSerializer(read_only=True)
 
     class Meta:
         model = OrderItem
@@ -263,6 +264,12 @@ class OrderSerializer(serializers.ModelSerializer):
             'name',
             'phone',
             'address',
+
+            'state',
+            'district',
+            'postoffice',
+            'pincode',          
+
             'total_price',
             'status',
             'payment_status',

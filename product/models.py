@@ -148,6 +148,14 @@ class Order(models.Model):
 
     address = models.TextField()
 
+    state = models.CharField(max_length=100,blank=True)
+
+    district = models.CharField(max_length=100,blank=True)
+
+    postoffice = models.CharField(max_length=100,blank=True)
+
+    pincode = models.CharField(max_length=6,blank=True)
+
     total_price = models.DecimalField(
         max_digits=10,
         decimal_places=2,

@@ -61,6 +61,7 @@ urlpatterns = [
     path('users/<int:pk>/toggle-status/',ToggleUserStatusAPIView.as_view()),
     path('admin-dashboard/',AdminDashboardAPIView.as_view()),
     path("sizes/", SizeList.as_view()),
+    path("check-pincode/<str:pincode>/",CheckPincodeAPIView.as_view()),
     
     
 

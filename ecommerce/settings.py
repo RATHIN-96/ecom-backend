@@ -24,9 +24,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-tit4inpprlob87jxe_y5q#cj%t@9_pbj=&#!p9+%6gzob+5z5x'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["velora-backend-08fd.onrender.com"]
+ALLOWED_HOSTS = ["127.0.0.1",
+    "localhost",
+    "velora-backend-08fd.onrender.com"]
 
 
 # Application definition

@@ -420,61 +420,94 @@ class PlaceOrderAPIView(APIView):
         name = request.data.get("name")
         phone = request.data.get("phone")
         address = request.data.get("address")
+
         state = request.data.get("state")
         district = request.data.get("district")
         postoffice = request.data.get("postoffice")
-        pincode = request.data.get("pincode")       
+        pincode = request.data.get("pincode")
 
         cart = Cart.objects.get(user=request.user)
         cart_items = CartItem.objects.filter(cart=cart)
 
         if not cart_items.exists():
+
             return Response(
                 {"message": "Cart is empty"},
                 status=status.HTTP_400_BAD_REQUEST
             )
 
-        total = Decimal("0.00")
+        # -------------------------
+        # Calculate Items Total
+        # -------------------------
+
+        items_total = Decimal("0.00")
 
         for item in cart_items:
 
             if item.product.discount_percentage > 0:
 
                 discounted_price = item.product.price - (
-                    item.product.price * Decimal(item.product.discount_percentage) / Decimal("100")
-            )
+
+                    item.product.price *
+                    Decimal(item.product.discount_percentage) /
+                    Decimal("100")
+
+                )
 
             else:
 
                 discounted_price = item.product.price
 
-            total += discounted_price * item.quantity
+            items_total += discounted_price * item.quantity
+
+        # -------------------------
+        # Delivery Charge
+        # -------------------------
+
+        if items_total >= Decimal("999"):
+
+            delivery_charge = Decimal("0.00")
+
+        else:
+
+            delivery_charge = Decimal("50.00")
+
+        # -------------------------
+        # Grand Total
+        # -------------------------
+
+        grand_total = items_total + delivery_charge
+
+        # -------------------------
+        # Create Order
+        # -------------------------
 
         order = Order.objects.create(
 
             user=request.user,
 
             name=name,
-
             phone=phone,
-
             address=address,
 
             state=state,
-
             district=district,
-
             postoffice=postoffice,
-
             pincode=pincode,
 
-            total_price=total,
+            delivery_charge=delivery_charge,
+
+            total_price=grand_total,
 
             status="Pending",
 
             payment_status="Pending"
 
         )
+
+        # -------------------------
+        # Order Items
+        # -------------------------
 
         for item in cart_items:
 
@@ -506,12 +539,23 @@ class PlaceOrderAPIView(APIView):
 
             )
 
+        # -------------------------
+        # Clear Cart
+        # -------------------------
+
         cart_items.delete()
 
         return Response({
 
             "message": "COD Order Placed Successfully",
-            "order_id": order.id
+
+            "order_id": order.id,
+
+            "items_total": items_total,
+
+            "delivery_charge": delivery_charge,
+
+            "grand_total": grand_total
 
         })
     
@@ -524,9 +568,11 @@ class BuyNowOrderAPIView(APIView):
         product_id = request.data.get("product_id")
         quantity = int(request.data.get("quantity", 1))
         size_id = request.data.get("size_id")
+
         name = request.data.get("name")
         phone = request.data.get("phone")
         address = request.data.get("address")
+
         state = request.data.get("state")
         district = request.data.get("district")
         postoffice = request.data.get("postoffice")
@@ -542,12 +588,17 @@ class BuyNowOrderAPIView(APIView):
                 {"message": "Product not found"},
                 status=status.HTTP_404_NOT_FOUND
             )
-        
+
+        # -------------------------
+        # Size
+        # -------------------------
+
         size = None
 
         if size_id:
 
             try:
+
                 size = Size.objects.get(id=size_id)
 
             except Size.DoesNotExist:
@@ -557,7 +608,9 @@ class BuyNowOrderAPIView(APIView):
                     status=status.HTTP_400_BAD_REQUEST
                 )
 
+        # -------------------------
         # Discount Price
+        # -------------------------
 
         if product.discount_percentage > 0:
 
@@ -573,33 +626,60 @@ class BuyNowOrderAPIView(APIView):
 
             discounted_price = product.price
 
-        total = discounted_price * quantity
+        # -------------------------
+        # Items Total
+        # -------------------------
+
+        items_total = discounted_price * quantity
+
+        # -------------------------
+        # Delivery Charge
+        # -------------------------
+
+        if items_total >= Decimal("999"):
+
+            delivery_charge = Decimal("0.00")
+
+        else:
+
+            delivery_charge = Decimal("50.00")
+
+        # -------------------------
+        # Grand Total
+        # -------------------------
+
+        grand_total = items_total + delivery_charge
+
+        # -------------------------
+        # Create Order
+        # -------------------------
 
         order = Order.objects.create(
 
             user=request.user,
 
             name=name,
-
             phone=phone,
-
             address=address,
 
             state=state,
-
             district=district,
-
             postoffice=postoffice,
-
             pincode=pincode,
 
-            total_price=total,
+            delivery_charge=delivery_charge,
+
+            total_price=grand_total,
 
             status="Pending",
 
             payment_status="Pending"
 
         )
+
+        # -------------------------
+        # Create Order Item
+        # -------------------------
 
         OrderItem.objects.create(
 
@@ -619,12 +699,16 @@ class BuyNowOrderAPIView(APIView):
 
             "message": "Buy Now Order Placed Successfully",
 
-            "order_id": order.id
+            "order_id": order.id,
+
+            "items_total": items_total,
+
+            "delivery_charge": delivery_charge,
+
+            "grand_total": grand_total
 
         })
     
-    
-
 class CancelOrderAPIView(APIView):
 
     permission_classes = [IsAuthenticated]
@@ -867,7 +951,11 @@ class BuyNowCreatePaymentAPIView(APIView):
                 {"error": "Product not found"},
                 status=status.HTTP_404_NOT_FOUND
             )
-        
+
+        # -------------------------
+        # Size
+        # -------------------------
+
         size = None
 
         if size_id:
@@ -883,7 +971,9 @@ class BuyNowCreatePaymentAPIView(APIView):
                     status=status.HTTP_400_BAD_REQUEST
                 )
 
-        # Discount Calculation
+        # -------------------------
+        # Discount Price
+        # -------------------------
 
         if product.discount_percentage > 0:
 
@@ -899,29 +989,50 @@ class BuyNowCreatePaymentAPIView(APIView):
 
             discounted_price = product.price
 
-        total = discounted_price * quantity
+        # -------------------------
+        # Items Total
+        # -------------------------
 
+        items_total = discounted_price * quantity
+
+        # -------------------------
+        # Delivery Charge
+        # -------------------------
+
+        if items_total >= Decimal("999"):
+
+            delivery_charge = Decimal("0.00")
+
+        else:
+
+            delivery_charge = Decimal("50.00")
+
+        # -------------------------
+        # Grand Total
+        # -------------------------
+
+        grand_total = items_total + delivery_charge
+
+        # -------------------------
         # Create Pending Order
+        # -------------------------
 
         order = Order.objects.create(
 
             user=request.user,
 
             name=name,
-
             phone=phone,
-
             address=address,
 
             state=state,
-
             district=district,
-
             postoffice=postoffice,
-
             pincode=pincode,
 
-            total_price=total,
+            delivery_charge=delivery_charge,
+
+            total_price=grand_total,
 
             status="Pending",
 
@@ -929,11 +1040,13 @@ class BuyNowCreatePaymentAPIView(APIView):
 
         )
 
+        # -------------------------
         # Create Razorpay Order
+        # -------------------------
 
         payment = client.order.create({
 
-            "amount": int(total * 100),
+            "amount": int(grand_total * 100),
 
             "currency": "INR",
 
@@ -941,7 +1054,9 @@ class BuyNowCreatePaymentAPIView(APIView):
 
         })
 
+        # -------------------------
         # Save Razorpay Order ID
+        # -------------------------
 
         order.razorpay_order_id = payment["id"]
 
@@ -955,7 +1070,13 @@ class BuyNowCreatePaymentAPIView(APIView):
 
             "currency": payment["currency"],
 
-            "key": settings.RAZORPAY_KEY_ID
+            "key": settings.RAZORPAY_KEY_ID,
+
+            "items_total": items_total,
+
+            "delivery_charge": delivery_charge,
+
+            "grand_total": grand_total
 
         })
     
@@ -1045,6 +1166,7 @@ class VerifyPaymentAPIView(APIView):
         
 
 class BuyNowVerifyPaymentAPIView(APIView):
+
     permission_classes = [IsAuthenticated]
 
     def post(self, request):
@@ -1053,13 +1175,8 @@ class BuyNowVerifyPaymentAPIView(APIView):
         razorpay_payment_id = request.data.get("razorpay_payment_id")
         razorpay_signature = request.data.get("razorpay_signature")
 
-        # print("Product ID:", request.data.get("product_id"))
-        # print("Size ID:", request.data.get("size_id"))
-        # print("Request Data:", request.data)        
-
         try:
 
-            # Verify Razorpay Signature
             client.utility.verify_payment_signature({
 
                 "razorpay_order_id": razorpay_order_id,
@@ -1068,15 +1185,14 @@ class BuyNowVerifyPaymentAPIView(APIView):
 
             })
 
-            # Get Pending Order
             order = Order.objects.get(
+
                 user=request.user,
                 razorpay_order_id=razorpay_order_id,
                 payment_status="Pending"
+
             )
 
-            # Update Payment Details
-            
             order.payment_id = razorpay_payment_id
             order.payment_status = "Success"
             order.status = "Paid"
@@ -1098,7 +1214,7 @@ class BuyNowVerifyPaymentAPIView(APIView):
                     "message": "Product not found"
 
                 }, status=status.HTTP_404_NOT_FOUND)
-            
+
             size = None
 
             if size_id:
@@ -1115,10 +1231,6 @@ class BuyNowVerifyPaymentAPIView(APIView):
                         "message": "Invalid size"
 
                     }, status=status.HTTP_400_BAD_REQUEST)
-            
-            
-
-        # Discount Price
 
             if product.discount_percentage > 0:
 
@@ -1132,7 +1244,7 @@ class BuyNowVerifyPaymentAPIView(APIView):
 
             else:
 
-                    discounted_price = product.price
+                discounted_price = product.price
 
             OrderItem.objects.create(
 
@@ -1147,13 +1259,11 @@ class BuyNowVerifyPaymentAPIView(APIView):
                 price=discounted_price
 
             )
-          
-
-            
 
             return Response({
 
                 "success": True,
+
                 "message": "Payment Verified Successfully"
 
             })
@@ -1163,6 +1273,7 @@ class BuyNowVerifyPaymentAPIView(APIView):
             return Response({
 
                 "success": False,
+
                 "message": str(e)
 
             }, status=status.HTTP_400_BAD_REQUEST)

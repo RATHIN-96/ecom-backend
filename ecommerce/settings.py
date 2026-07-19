@@ -125,8 +125,11 @@ CORS_ALLOW_ALL_ORIGINS = True
 STATIC_URL = "static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
 
 RAZORPAY_KEY_ID = "rzp_test_T7oRMPPWQuMKj7"
 RAZORPAY_KEY_SECRET = "uRJvtUGd4YECvVMLksO9SlMP"

@@ -1705,28 +1705,20 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAdminUser
 from rest_framework.response import Response
 
-@api_view(["POST"])
+@api_view(["GET"])
 @permission_classes([IsAdminUser])
 def restore_database(request):
 
     try:
-
         call_command("loaddata", "data.json")
 
         return Response({
-
             "success": True,
-
             "message": "Database restored successfully."
-
         })
 
     except Exception as e:
-
         return Response({
-
             "success": False,
-
             "error": str(e)
-
         }, status=500)

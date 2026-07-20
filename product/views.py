@@ -94,7 +94,7 @@ class LoginAPIView(ObtainAuthToken):
         })
 
 def home(request):
-    return HttpResponse("Welcome to Ecommerce Website")
+    return HttpResponse("Welcome to My page")
 
 class ProductDetailAPIView(generics.RetrieveAPIView):
 

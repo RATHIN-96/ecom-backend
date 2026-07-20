@@ -1706,7 +1706,7 @@ from rest_framework.permissions import IsAdminUser
 from rest_framework.response import Response
 
 @api_view(["GET"])
-@permission_classes([IsAdminUser])
+
 def restore_database(request):
 
     try:

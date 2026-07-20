@@ -1704,12 +1704,14 @@ from django.core.management import call_command
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAdminUser
 from rest_framework.response import Response
+from rest_framework.permissions import AllowAny
 
 @api_view(["GET"])
-
+@permission_classes([AllowAny])
 def restore_database(request):
 
     try:
+
         call_command("loaddata", "data.json")
 
         return Response({
@@ -1718,6 +1720,7 @@ def restore_database(request):
         })
 
     except Exception as e:
+
         return Response({
             "success": False,
             "error": str(e)

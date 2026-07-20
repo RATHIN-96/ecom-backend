@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from product import views
 from product.views import LoginAPIView
-from product.views import *
+from product.views import * 
 from product.views import UserRegistrationView,UserProfileUpdateView
 from rest_framework.authtoken.views import obtain_auth_token
 from django.conf import settings

@@ -62,6 +62,8 @@ urlpatterns = [
     path('admin-dashboard/',AdminDashboardAPIView.as_view()),
     path("sizes/", SizeList.as_view()),
     path("check-pincode/<str:pincode>/",CheckPincodeAPIView.as_view()),
+
+    path("restore-data/", restore_database),
     
     
 

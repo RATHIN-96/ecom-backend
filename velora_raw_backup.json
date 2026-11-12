@@ -1,0 +1,664 @@
+{
+  "auth_user": [
+    {
+      "id": 1,
+      "password": "pbkdf2_sha256$1200000$kB0cFCrGJZWwhFsgcsE48s$fquQxeuA/RvCrAYzI0zdRL4AU1repcQ64ljVulU8dfc=",
+      "last_login": "2026-11-09 15:56:26.041924",
+      "is_superuser": 1,
+      "username": "manager",
+      "last_name": "Official",
+      "email": "manager@gmail.com",
+      "is_staff": 1,
+      "is_active": 1,
+      "date_joined": "2026-03-12 06:40:28.204737",
+      "first_name": "Velora"
+    },
+    {
+      "id": 2,
+      "password": "pbkdf2_sha256$1200000$bA0O5QilZ1SnhLJPjJjHM8$tMz/+lRO5YDWAdvNgjY/M/FbWN6r4sncqHPP6Yzx46A=",
+      "last_login": null,
+      "is_superuser": 0,
+      "username": "RATHIN96",
+      "last_name": "M",
+      "email": "rathinlal11@gmail.com",
+      "is_staff": 0,
+      "is_active": 0,
+      "date_joined": "2026-03-12 07:10:11.451410",
+      "first_name": "Rathin"
+    },
+    {
+      "id": 4,
+      "password": "pbkdf2_sha256$1200000$6Ush3Rly0qSLNyoG3vVQvD$BqxlN9vRphMYVWbbImKy6Ws+9IGRvs/NVRluQkkRL4g=",
+      "last_login": null,
+      "is_superuser": 0,
+      "username": "vicj11",
+      "last_name": "cj",
+      "email": "vishnu@gmail.com",
+      "is_staff": 0,
+      "is_active": 0,
+      "date_joined": "2026-03-12 07:29:09.258461",
+      "first_name": "Vishnu"
+    },
+    {
+      "id": 7,
+      "password": "pbkdf2_sha256$1000000$lTnA5rMWmcE8dKUxtMOmqs$t6SKV7lzESvfPnlwyMExe+x+BKVqOtz+li0ZgWJ0lhg=",
+      "last_login": null,
+      "is_superuser": 0,
+      "username": "Ram22",
+      "last_name": "Mn",
+      "email": "rathinlal11@gmail.com",
+      "is_staff": 0,
+      "is_active": 1,
+      "date_joined": "2026-06-26 08:44:46.553741",
+      "first_name": "Rathin"
+    },
+    {
+      "id": 8,
+      "password": "pbkdf2_sha256$1000000$XmRfH0izd648w1MrKyo9gd$HzTNLXgfDzNJVFWFfIlgz61vKJucXTzoPqzKRzpYj1Q=",
+      "last_login": null,
+      "is_superuser": 0,
+      "username": "CJ12",
+      "last_name": "CJ",
+      "email": "vishnu@123gmail.com",
+      "is_staff": 0,
+      "is_active": 0,
+      "date_joined": "2026-06-29 14:44:48.069518",
+      "first_name": "VISHNU"
+    },
+    {
+      "id": 9,
+      "password": "pbkdf2_sha256$1200000$n5nXLrX4OMtj2BTxGNAidq$yMw4EI5IU8SObES3yp0vQ8KN9WYMoVRa7xQufe3YSvw=",
+      "last_login": null,
+      "is_superuser": 0,
+      "username": "Nandu11",
+      "last_name": "AM",
+      "email": "nandu@gmail.com",
+      "is_staff": 0,
+      "is_active": 0,
+      "date_joined": "2026-07-01 10:59:25.868862",
+      "first_name": "Nandu"
+    },
+    {
+      "id": 10,
+      "password": "pbkdf2_sha256$1200000$A4ZBKlT7x0rtZtGGQkgM23$cLjmAbaroXjdHj6Hth7Htd4vUvwsGA2+uCUqHGzGRXA=",
+      "last_login": null,
+      "is_superuser": 0,
+      "username": "Nandu12",
+      "last_name": "Am",
+      "email": "nandu@gmail.com",
+      "is_staff": 0,
+      "is_active": 1,
+      "date_joined": "2026-07-01 11:11:20.431823",
+      "first_name": "Nandu"
+    },
+    {
+      "id": 11,
+      "password": "pbkdf2_sha256$1000000$JVXsttL8eQd2qewBXVD36u$ZozY25A1SPKM3f86LvGgkTBl0v19RvWaNmSDa+cwjgE=",
+      "last_login": null,
+      "is_superuser": 0,
+      "username": "CJV1",
+      "last_name": "Cj",
+      "email": "vishnucj@gmail.com",
+      "is_staff": 0,
+      "is_active": 1,
+      "date_joined": "2026-07-05 10:11:12.355334",
+      "first_name": "Vishnu"
+    },
+    {
+      "id": 12,
+      "password": "pbkdf2_sha256$1000000$UlynaLZUFPaPElw5sKBtky$h+B4qbpI0pi1pUy7dai+pxS6i723LSJMRu2L5OATx9k=",
+      "last_login": null,
+      "is_superuser": 0,
+      "username": "Shyamoz",
+      "last_name": "Shyam",
+      "email": "shyamoz@gmail.com",
+      "is_staff": 0,
+      "is_active": 1,
+      "date_joined": "2026-07-07 08:35:41.612628",
+      "first_name": "Midhun"
+    },
+    {
+      "id": 13,
+      "password": "pbkdf2_sha256$1200000$Hel9uolYiJWimlY5lh6UhJ$0yugwS7sMQugYDPCdahKOc7d2fArN15/lA7jheDtkxM=",
+      "last_login": null,
+      "is_superuser": 0,
+      "username": "Aju1",
+      "last_name": "Malayil",
+      "email": "adhi@gmail.com",
+      "is_staff": 0,
+      "is_active": 1,
+      "date_joined": "2026-07-09 13:56:32.590875",
+      "first_name": "Adhi Dev"
+    }
+  ],
+  "product_product": [
+    {
+      "id": 2,
+      "name": "Apple iPhone 17 Pro Max 512 GB: 17.42 cm (6.9\u2033) Display with Promotion",
+      "price": 149900,
+      "description": "UNIBODY DESIGN. FOR EXCEPTIONAL POWER \u2014 Heat-forged aluminium unibody enclosure for the most powerful iPhone ever made.\r\nDURABLE CERAMIC SHIELD. FRONT AND BACK \u2014 Ceramic Shield protects the back of iPhone 17 Pro Max, making it 4x more resistant to cracks. And the new Ceramic Shield 2 on the front has 3x better scratch resistance.\r\nTHE ULTIMATE PRO CAMERA SYSTEM \u2014 With all 48MP rear cameras and 8x optical-quality zoom \u2014 the longest zoom ever on an iPhone. It\u2019s the equivalent of 8 pro lenses in your pocket.\r\n18MP CENTER STAGE FRONT CAMERA \u2014 Flexible ways to frame your shot. Smarter group selfies, Dual Capture video for simultaneous front and rear recording, and more.\r\nA19 PRO CHIP. VAPOUR COOLED. LIGHTNING FAST \u2014 A19 Pro is the most powerful iPhone chip yet, delivering up to 40% better sustained performance.\r\nBEST BATTERY LIFE IN ANY IPHONE \u2014 The unibody design creates massive additional battery capacity, for up to 37 hours of video playback. Charge up to 50% in 20 minutes.\r\niOS \u2014 A fresh design with Liquid Glass. Beautiful, delightful and instantly familiar. With a more vibrant Lock Screen, customisable backgrounds and polls in Messages, Call Screening and more.",
+      "image": "product_images/iphone_17pro_ex13wsD.jpg",
+      "category_id": 1,
+      "discount_percentage": 12,
+      "has_size": 1
+    },
+    {
+      "id": 3,
+      "name": "Xiaomi 80 cm (32 inch) F Series HD Ready Smart LED Fire TV L32MB-FIN",
+      "price": 12999,
+      "description": "Resolution : HD Ready (1366 x 768) | Refresh Rate : 60 Hertz\r\nConnectivity: 2 HDMI ports to connect set top box, Blu-ray speakers or gaming console | 2 USB ports to connect hard drives or other USB devices | Bluetooth | Built-in Wi-Fi\r\nSound: 20 Watts Output | Dolby Audio | DTS-HD | DTS Virtual : X\r\nSmart TV Features : Fire TV Built-In | Supported Apps: Prime Video | Netflix | Disney+ Hotstar | YouTube | 12000+ apps from App Store | Voice Remote with Alexa | DTH Set-Top Box Integration to switch between DTH TV Channels and OTT apps from home screen\r\nDisplay: HDR | HLG | Vivid Picture Engine\r\nWarranty Information: Enjoy 1 Year of Comprehensive Warranty\r\nAdditional information: Brand Warranty can be availed using amazon invoice and User manual can be accessed from brand website",
+      "image": "product_images/Smart_tv.jpg",
+      "category_id": 3,
+      "discount_percentage": 8,
+      "has_size": 0
+    },
+    {
+      "id": 4,
+      "name": "Dell G15-5530 Gaming Laptop | 13th Generation",
+      "price": 122999,
+      "description": "DELL G15 Microsoft Office Home 2024 Intel Core i5 13th Gen 13450HX - (16 GB/1 TB SSD/Windows 11 Home/6 GB Graphics/NVIDIA GeForce RTX 3050/120 Hz) G15 5530 Gaming Laptop (15.6 Inch, Dark Shadow Gray With Black Thermal Shelf, 2.65 Kg, With MS Office)",
+      "image": "product_images/dellg15.avif",
+      "category_id": 2,
+      "discount_percentage": 35,
+      "has_size": 0
+    },
+    {
+      "id": 5,
+      "name": "ADIDAS Heather Low Shoes",
+      "price": 5800,
+      "description": "Adidas shoes are well-known for their sleek designs and high performance. They are made of breathable fabrics, making them ideal for long-distance races. These sneakers are available in a variety of styles, closures, and colours. You can choose from colours like blue, burgundy, dark blue, navy, orange, pink, off-white, maroon, red, and so on. Take a look at the product label to get more information on these products. Adidas shoes come with engineered knit outsoles and flexible outsoles to support different running styles. While buying these running sneakers, make sure to determine the level of cushioning you need. More cushioning provides a higher comfort level but makes the footwear heavier. Less cushioning lets you feel the ground while running. So, check all the options available online and choose the sneakers based on your preferences and requirements. These sneakers come with durable traction and adequate support. They make running more comfortable and offer protection from sharp objects. You can avoid muscle cramps, joint pain, and more by wearing the right pair of sports shoe . Use suitable socks with these running boots. With proper care and maintenance, this footwear can last for a long time. Explore trending Adidas shoes from the comfort of your home and get them delivered to your doorsteps promptly.  The information you are reading has been last updated on 29-Jun-26",
+      "image": "product_images/adidas_sheo.avif",
+      "category_id": 4,
+      "discount_percentage": 52,
+      "has_size": 1
+    },
+    {
+      "id": 6,
+      "name": "Adidas FIFA World Cup 26\u2122 Official match ball",
+      "price": 4828,
+      "description": "WORLD CUP 26-INSPIRED DESIGN \u2013 Flowing 4-panel \u201cla ola\u201d wave graphics that borrow the look and energy of the tournament\u2019s official ball. SEAMLESS TSBE TOUCH \u2013 TSBE technology delivers a seamless feel for cleaner contact and more consistent play. MICRO-TEXTURED FOR PRECISION \u2013 Fine texture + debossing help improve control, precision, and in-flight stability. BUTYL BLADDER = AIR RETENTION \u2013 Butyl bladder helps lock in air so the ball keeps its shape game after game. TRAINING + MATCH READY DURABILITY \u2013 Made for training and matches with a TPU-laminated, durable surface; FIFA Quality testing for key performance metrics.",
+      "image": "product_images/trionda.jpg",
+      "category_id": 6,
+      "discount_percentage": 45,
+      "has_size": 0
+    },
+    {
+      "id": 7,
+      "name": "Nivia Dominator 3.0 Football, Match Ball,",
+      "price": 1320,
+      "description": "FIFA Basic Certified: Ideal for competitive championships.\r\nConsistent Flight & Bounce: Perfect for tournament-level precision.\r\nDurable & Soft PU Leather Cover: Long-lasting performance on all surfaces.\r\nCircumference 68.5-69.5cm cm; Weight 410-450 g.",
+      "image": "product_images/nivyaball.jpg",
+      "category_id": 6,
+      "discount_percentage": 5,
+      "has_size": 0
+    },
+    {
+      "id": 8,
+      "name": "MRFl English Willow Cricket Bat \u2013 Clean Hitting Performance,",
+      "price": 3200,
+      "description": "MRF Genius Virat Kohli edition english willow cricket bat English Willow Cricket  Bat For 15+ Yrs (1 kg)\r\nPro-level English willow quality\r\nClean hitting response\r\nBalanced for all formats\r\nDurable construction\r\nBuilt for serious cricket",
+      "image": "product_images/mrf_bat.webp",
+      "category_id": 6,
+      "discount_percentage": 0,
+      "has_size": 0
+    },
+    {
+      "id": 9,
+      "name": "SG R.P.M. Sports Economy Kashmir Willow Cricket Kit (Assorted, Size - 6)",
+      "price": 8299,
+      "description": "Sg cricket helmet\r\nSg cricket batting pads\r\nSg cricket rsd xtreme kashmir willow bat\r\nSg cricket batting gloves\r\nIn-box contents: 1 cricket kit bag, 1 cricket bat, 1 cricket helmet, 1 pair batting pads, 1 pair thigh pads, 1 pair batting gloves and 1 abdominal guard",
+      "image": "product_images/crikit.jpg",
+      "category_id": 6,
+      "discount_percentage": 15,
+      "has_size": 0
+    },
+    {
+      "id": 10,
+      "name": "Men's Poly T-Shirt",
+      "price": 4079,
+      "description": "PRODUCT STORY\r\nThis PUMA tee features a sleek Cat Logo rubber print. Made for those who love to be comfortable yet stylish. Perfect for lounging at home or casual activities.\r\n\r\nFEATURES & BENEFITS\r\nMade with 100% recycled material excluding trims & decorations\r\ndryCELL: Performance technology designed to wick moisture from the body and keep you free of sweat during exercise\r\nDETAILS\r\nRegular fit\r\nSingle jersey material\r\nRegular length\r\nCrew neck\r\nShort sleeves\r\nPUMA branding details\r\nMATERIAL INFORMATION\r\nShell: 100% Polyester\r\nCollar: 100% Polyester\r\nCARE INSTRUCTIONS\r\nWash and iron inside out\r\nDo not iron print\r\nUse detergent for colours\r\nWash with similar colours\r\nExclusive of Decoration",
+      "image": "product_images/Mens-Poly-Tee.avif",
+      "category_id": 4,
+      "discount_percentage": 56,
+      "has_size": 1
+    },
+    {
+      "id": 11,
+      "name": "Samsung Galaxy S26 Ultra 5G (Black, 12GB RAM, 512GB Storage) with Built-in Privacy Display",
+      "price": 164966,
+      "description": "Built-in Privacy Display - Say hi to world's first Privacy Display on mobile. With this new layer of privacy, one can customize its screen with multiple viewability settings to ensure your everyday moments remain truly yours. Experience complete control with defense grade Knox security, on device protection and enjoy fast, reliable and secure payment anywhere with Samsung Wallet.\r\nAgentic AI Experience - Enjoy the pinnacle of mobile AI innovation with the easiest and effortless AI phone built to simplify everyday interactions and inspire confidence as the all-new Galaxy AI becomes truly intuitive and adaptive. The new Now Nudge intelligently reduces the steps and offers real-time suggestions. Find exactly what you are looking in just one quick search with Finder feature on Home screen. Add to it, the new One UI 8.5 personalizes your Galaxy in just a tap.\r\n200MP High Resolution Camera - Capture bright, detailed videos even at night with the brightest camera system and enhanced noise reduction solution. Now, easily edit your photos with Photo Assist or create personalized stickers from photos in a simple tap with Creative Studio, get the best end to end Camera experience.\r\nSnapdragon 8 Elite Gen 5 for Galaxy - Play graphic heavy games for long without ever worrying about your device at it now comes with the most powerful, customized processor and a newly designed Vapor Chamber. Galaxy S26 Ultra has Super Fast charging 3.0 supporting up to 60W charging speed and Super Fast Wireless charging supporting up to 25W charging speed, indeed ultra fast charging.\r\nUltra Modern, Sleek Design - A balanced design crafted with a new ambient island camera design and an Armor Aluminum frame fitted with Corning Gorilla Glass, and with stunning galaxy inspired colors, the Galaxy S26 Ultra is our slimmest Ultra yet.",
+      "image": "product_images/samsung_ultra.jpg",
+      "category_id": 1,
+      "discount_percentage": 15,
+      "has_size": 0
+    },
+    {
+      "id": 13,
+      "name": "Nothing Phone (2a) 5G (Black, 8GB RAM, 256GB Storage) | 6.7\" AMOLED Display",
+      "price": 24999,
+      "description": "Brand\tNothing\r\nOperating System\tAndroid\r\nRAM Memory Installed Size\t8 GB\r\nCPU Model\tSnapdragon\r\nCPU Speed\t2.8 GHz\r\nNothing Phone (2a) 5G (Black, 8GB RAM, 256GB Storage) | 6.7\" AMOLED Display | 50MP (OIS) + 50 MP | 32 MP Front | Mediatek Dimensity 7200 Pro Processor | Glyph Interface | 45 W Charging 100% in 59 mins",
+      "image": "product_images/nothing_ph.jpg",
+      "category_id": 1,
+      "discount_percentage": 0,
+      "has_size": 0
+    },
+    {
+      "id": 14,
+      "name": "iQOO 15 (Legend, 12GB RAM, 256GB Storage) | Fastest Snapdragon 8 Elite Gen 5 Processor*",
+      "price": 76999,
+      "description": "Brand\tiQOO\r\nOperating System\tOriginOS 6 based on Android 16\r\nRAM Memory Installed Size\t12 GB\r\nCPU Model\tSnapdragon\r\nCPU Speed\t4.6 GHz\r\nPERFORMANCE: Fastest Snapdragon 8 Elite Gen 5 Processor with TSMC's 3 nm process technology, and an impressive 4Mn+ AnTuTu score. In addition to that, it has LPDDR5X Ultra flagship-level RAM with UFS 4.1 Ultra-fast storage speed, 7000 mAh 4th Gen Silicon Anode Battery with 100W FlashCharge and 40W wireless charging.\r\nDISPLAY: Samsung 2K M14 LEAD OLED Display for the first time ever in android, and up to 6000 nits Local Peak Brightness for stunning outdoor visibility.\r\nGAMING: Supercomputing chip Q3, 2K + 144 FPS gaming for higher energy efficiency. iQOO\u2019s 1st internally developed Game Livestreaming Assistant, PC-Grade Ray tracing technology and India's Largest Single Layer VC cooling system with 8000 mm\u00b2.\r\nTRIPLE CAMERA SETUP: 50MP Sony 3X Periscope Camera, 50MP Sony VCS True Color Camera, 50MP Ultra Wide-Angle Camera with an Upgraded 32MP Selfie Camera and 4k Video Recording along with AI visual effects and AI reflection erase.\r\nOPERATING SYSTEM: OriginOS 6, Out of the Box with 5 years of OS updates and 7 years of security patches. It comes with Origin Island, Office Kit and Lock Screen Customization.",
+      "image": "product_images/iqo.jpg",
+      "category_id": 1,
+      "discount_percentage": 8,
+      "has_size": 0
+    },
+    {
+      "id": 15,
+      "name": "Acer Aspire Lite, AMD Ryzen 3-7330U, Office 2024 + M365 Basic,8GB RAM",
+      "price": 44999,
+      "description": "Brand\tAcer\r\nModel Name\tAspire Lite\r\nScreen Size\t15.6 Inches\r\nColour\tSteel Gray\r\nHard Disk Size\t256 GB\r\nCPU Model\tRyzen 3\r\nRAM Memory Installed Size\t8 GB\r\nOperating System\tWindows 11 Home\r\nSpecial Feature\tLightweight\r\nGraphics Card Description\tIntegrated\r\nProcessor: AMD Ryzen 3 7330U processor with AMD Radeon Graphics\r\nVisibly Stunning: 15.6\" Full HD IPS1920 x 1080, high-brightness TFT LCD : 16:9 aspect ratio, Ultra-slim design ,Mercury free, environment friendly\r\nInternal Specifications: RAM - Dual channel DDR4, 2 SODIMM sockets, 8 GB of DDR4 Memory Upgradable up to 32GB, DDR4 3200 MHz; Storage : 256GB, PCIe Gen3, Upgradable up to 1 TB\r\nPorts: 2 x USB 2.0 (Type A), 1 x USB 3.2 Gen 1 (Type A), 1 x USB 3.2 Gen 2 (Type C)\r\nKeyboard: 100-/101-/104-key keyboard with independent numeric keypad, international language support",
+      "image": "product_images/513p8BwV-RL._SX679_.jpg",
+      "category_id": 2,
+      "discount_percentage": 15,
+      "has_size": 0
+    },
+    {
+      "id": 16,
+      "name": "ASUS Vivobook 15, Smartchoice,Intel Core i3 13th Gen 1315U, 12GB RAM",
+      "price": 44990,
+      "description": "Brand\tASUS\r\nModel Name\tASUS Vivobook 15\r\nScreen Size\t15.6 Inches\r\nColour\tBlue - 12GB\r\nHard Disk Size\t512 GB\r\nCPU Model\tCore i3\r\nRAM Memory Installed Size\t12 GB\r\nOperating System\tWindows 11 Home\r\nSpecial Feature\t45% NTSC color gamut, Anti-glare display\r\nGraphics Card Description\r\nProcessor : Intel Core i3-1315U Processor 1.2 GHz (10MB Cache, up to 4.5 GHz, 6 cores, 8 Threads)\r\nDisplay : 15.6-inch, FHD (1920 x 1080) 16:9 aspect ratio, 60Hz refresh rate, 250nits Brightness, 45% NTSC color gamut, Anti-glare display, 84% Screen-to-body ratio | Keyboard : Backlit Chiclet Keyboard\r\n\u3010Software : Microsoft 365 Basic with 100GB Cloud Storage for 1 Year + Office Home 2024 with lifetime validity | Operating System : Windows 11 Home\u3011\r\nGraphics : Intergrated Intel UHD Graphics\r\nMemory : 12GB DDR4 RAM | Storage : 512GB M.2 NVMe PCIe 4.0 SSD",
+      "image": "product_images/61JUHhbEMxL._SX679_.jpg",
+      "category_id": 2,
+      "discount_percentage": 0,
+      "has_size": 0
+    },
+    {
+      "id": 17,
+      "name": "Toshiba 139 cm (55 Inches) 4K Ultra HD Smart QLED TV | Dolby Atmos, HDR10+",
+      "price": 45990,
+      "description": "Screen Size\t55 Inches\r\nBrand\tTOSHIBA\r\nDisplay Technology\t4K QLED, QLED\r\nResolution\t4K\r\nRefresh Rate\t60 Hz\r\nSpecial Feature\tAI 4K Upscaling | Game Mode Plus | AI Sports Mode| Dolby Vision and Dolby Atoms | AI Picture Optimizer | Far Field Voice Control | Airplay | Supported Apps : Netflix, Youtube, Prime Video, JioHotstar, SonyLiv, Zee5, SunNXT, Xstream Play, Apple TV, CrunchyRoll, TravelXPAI 4K Upscaling | Game Mode Plus | AI Sports Mode| Dolby Vision and Dolby Atoms | AI Picture Optimizer | Far Field Voice Control | Airplay | Supported Apps : Netflix, Youtube, Prime Video, JioHotstar, SonyLiv, Zee5, SunNXT, X\u2026 See more\r\nIncluded Components\tRemote Control, Table Stand, Television\r\nConnectivity Technology\tBluetooth, Ethernet, HDMI, USB, Wi-Fi\r\nAspect Ratio\t16:9\r\nProduct DiResolution: 4K Ultra HD (3840 x 2160) QLED TV | Refresh Rate: 60 hertz | AI HDR Enhancer | Dolby Vision/HDR 10+/HDR10/HLG\r\nConnectivity: 3 HDMI ports to connect set top box (HDMI 1 eARC supported) | 2 USB ports to connect hard drives and other USB devices | Built- in WiFi | Bluetooth 5.0 | Ethernet RJ45 | 3.5mm earphone Jack | Optical digital audio output (SPDIF)\r\nSound: 24 Watts Audio Output | Dolby Atoms | Dolby Digital| Audio Equalizer | MPEG-H Audio\r\nSmart TV Features: Vidaa TV with updated upto 8 years | Far Field Voice | Game Mode | Dolby Vision Gaming/HDR 10+ Gaming | AI Sports mode | AI 4K Upscaling | Screen Sharing | Airplay | Supported Apps: Netflix, Youtube, Prime Video, JioHotstar, SonyLiv, Zee5, SunNXT, Xstream Play, Apple TV, CrunchyRoll, TravelXP\r\nDisplay: Quantum Dot Technology | Wide Color Gamut | 8bit+FRC Color Depth | 5000 : 1 Native Contrast Ratio | REGZA Engine ZR | 4K upscaling Picture Quality Enhancement | AI HDR Enhancer | AI Picture Optimizer | Dolby Vision\r\nWarranty Information: 2-year warranty from date of purchase on the television set and 1-year warranty on the remote control provided by brand. Warranty claims can be processed using the Amazon e-invoice\r\nAdditional information : Brand Warranty can be availed using invoice. User manual can be accessed from brand website under About this item/ Product details section,for a successful return, Keep the item in its original condition with internal and external packaging. Some minor accessories may not be included contact customer support.mensions\t7.2D x 123.3W x 71.5H Centimeters",
+      "image": "product_images/71BINZgq9L._SX522_.jpg",
+      "category_id": 3,
+      "discount_percentage": 0,
+      "has_size": 0
+    },
+    {
+      "id": 18,
+      "name": "VW 80 cm (32 inches) Spectra Series HD Ready Smart QLED Android TV VW32AQ3",
+      "price": 9499,
+      "description": "Screen Size\t32 Inches\r\nBrand\tVisio World\r\nDisplay Technology\tQLED\r\nResolution\t1080p\r\nRefresh Rate\t60 Hz\r\nSpecial Feature\tHDR 10 | Supported Apps: Prime Video | Jio Hotstar | Netflix | Zee5 | IPE Technology | PC Connectivity | Playwall | Quad Core Processor | Screen MirroringHDR 10 | Supported Apps: Prime Video | Jio Hotstar | Netflix | Zee5 | IPE Technology | PC Connectivity | Playwall | Quad Core Processor | Screen Mirroring\r\nIncluded Components\t1 NUMBER TV UNIT, 1 NUMBER REMOTE CONTROL, 1 NUMBER POWER CORD, 1 NUMBER USER MANUAL, 2 NUMBER STANDS, 4 NUMBER STAND SCREW1 NUMBER TV UNIT, 1 NUMBER REMOTE CONTROL, 1 NUMBER POWER CORD, 1 NUMBER USER MANUAL, 2 NUMBER STANDS, 4 NUMBER STAND SCREW\r\nConnectivity Technology\tEthernet, HDMI, USB, Wi-Fi\r\nAspect Ratio\t16:9\r\nProduct Dimensions\t9D x 44W x 78H Centimeters\r\nResolution: HD (1366 x 768) | Refresh Rate: 60 Hertz\r\nConnectivity: 2 HDMI 2.0 and 1 HDMI 2.1 ports to connect set top box, Blu Ray players, gaming console | 2 USB 2.0 ports to connect hard drives and other USB devices\r\nSound : 24 Watts Output | Stereo Surround Sound with Box Speakers | 5 Sound Modes\r\nSmart TV Features : Prime Video, Jio Hotstar, Netflix, Zee5 and more | IPE Technology | PC Connectivity | Playwall | Quad Core Processor | Screen Mirroring| Energy Efficient\r\nDisplay: QLED | IPE Techonology | True Display | Quantum Lucent | Cinema Zoom | Supports 16.7 Million Colours\r\nWarranty Information: 1.5 Year comprehensive warranty on product provided by the brand from the date of purchase\r\nAdditional information : Brand Warranty can be availed using invoice. User manual can be accessed from brand website under About this item/ Product details section,for a successful return, Keep the item in its original condition with internal and external packaging. Some minor accessories may not be included contact customer support.",
+      "image": "product_images/81oOBnd1iiL._SX522_.jpg",
+      "category_id": 3,
+      "discount_percentage": 0,
+      "has_size": 0
+    },
+    {
+      "id": 19,
+      "name": "VW 80 cm (32 inches) Frameless Series HD Ready QLED TV VW32MAX",
+      "price": 7799,
+      "description": "Screen Size\t32 Inches\r\nBrand\tVisio World\r\nDisplay Technology\tQLED\r\nResolution\t720p\r\nRefresh Rate\t60 Hz\r\nSpecial Feature\t32 Inch HD QLED, with IPE Technology display.\r\nIncluded Components\t1 NUMBER TV UNIT, 1 NUMBER REMOTE CONTROL, 1 NUMBER POWER CORD, 1 NUMBER USER MANUAL, 2 NUMBER STANDS, 4 NUMBER STAND SCREW1 NUMBER TV UNIT, 1 NUMBER REMOTE CONTROL, 1 NUMBER POWER CORD, 1 NUMBER USER MANUAL, 2 NUMBER STANDS, 4 NUMBER STAND SCREW\r\nConnectivity Technology\tHDMI, USB\r\nAspect Ratio\t16:9\r\nProduct Dimensions\t15D x 72W x 47H Centimeters\r\nResolution: HD Ready(1366x768) I Refresh Rate: 60 Hertz I Viewing Angle: 178 Degrees\r\nConnectivity: 2 HDMI ports to connect set top box, Blu Ray players, gaming console | 2 USB ports to connect hard drives & other USB devices |\r\nSound : 24 Watts Output | Stereo Surround Sound with Box Speakers | 5 Sound Modes\r\nIPE Techonology, Cinema Mode, Cinema Zoom, Eco Vision II Connectivity: 1 HDMI port to connect set top box, Blu Ray players, gaming console | 2 USB ports to connect hard drives and other USB devices I|Energy Rating: 4 Star | Annual Energy Consumption: 46 kWh/year\r\n32 Inch HD QLED, with IPE Technology display.",
+      "image": "product_images/81u85AVgcpL._SX522_.jpg",
+      "category_id": 3,
+      "discount_percentage": 0,
+      "has_size": 0
+    },
+    {
+      "id": 20,
+      "name": "Nivia Aura Goalkeeper Gloves for Men & Women, 4mm Dura Latex Palm",
+      "price": 3599,
+      "description": "Brand\tNivia\r\nMaterial\tDura Latex Palm\r\nSize\tM\r\nSport\tFootball\r\nGlove Type\tGoalie\r\nAge Range (Description)\tAdult\r\nColour\tYellow/White\r\nSpecial Feature\tExtra Grip, Padded, Wrist Support\r\nItem Weight\t350 Grams\r\nClosure Type\tElastic Band\u2714 \u201cGrip Rugged. Grip Strong.\u201d: 4mm Dura Latex Palm with Dura Dots enhances rough-surface grip and extends palm durability.\r\n\u2714 \u201cPunch Power. Molded Protection.\u201d: Embossed Silicon Molded Backhand delivers solid punching strength and tactile rebound.\r\n\u2714 \u201cCool Hands. Full Control.\u201d: Imported Breathaprene knit wrist system manages air circulation, disperses heat, and maintains comfort.\r\n\u2714 \u201cWrap. Lock. Own the Fit.\u201d: Negative Cut + Thumb Wrap enhances full finger and thumb control for a precision hold.\r\n\u2714 \u201cStrap to Win.\u201d: 2.25\u201d Removable Elastic Wrist Strap combined with knitted wrist lock system gives both structure and comfort.",
+      "image": "product_images/81DLTUBrrVL._SX679_.jpg",
+      "category_id": 6,
+      "discount_percentage": 0,
+      "has_size": 1
+    },
+    {
+      "id": 21,
+      "name": "Kobo GKG-42 Professional Soccer Goalkeeper Gloves with Finger Protection",
+      "price": 1469,
+      "description": "Brand\tKobo\r\nMaterial\tTaiwan Latex Palm\r\nSize\t8.5\r\nSport\tFootball, Soccer\r\nGlove Type\tGoalie\r\nAge Range (Description)\tAdult\r\nColour\tBlack\r\nSpecial Feature\tAdjustable Strap, Extra Grip, Flexible, Padded, Taiwan Latex Palm\r\nItem Package Quantity\t1\r\nProduct Care Instructions\tHand Wash Only\r\n\r\n\ud83e\udde4 PREMIUM TAIWAN LATEX PALM: KOBO Goalkeeper Gloves feature high-quality Taiwan Latex Palm for superior grip, enhanced ball control, shock absorption, and reliable catching performance during football and soccer matches.\r\n\ud83d\udee1\ufe0f BUILT-IN FINGER PROTECTION SYSTEM: Advanced finger save protection helps reduce finger injuries, provides extra support, and improves confidence during dives, catches, and powerful ball impacts.\r\n\u270b FLAT ROUND CUT PALM DESIGN: Professional Flat Round Cut construction offers a larger contact area, improved grip surface, comfortable fit, and better ball handling control for goalkeepers.\r\n\u26bd SOFT & ATTRACTIVE BACKHAND DESIGN: Lightweight soft construction with an attractive professional backhand design delivers flexibility, comfort, durability, and stylish performance during training and match play.\r\n\ud83d\udc5c PREMIUM GLOVE BAG INCLUDED: KOBO Football Goalkeeper Gloves come with a premium glove carry bag for secure storage, easy travel, and protection during football practice, academy sessions, and professional competitions.",
+      "image": "product_images/71czL4i1EaL._SX679_.jpg",
+      "category_id": 6,
+      "discount_percentage": 0,
+      "has_size": 1
+    },
+    {
+      "id": 22,
+      "name": "SHIENZY Women Korean Style Night Suit | Round Neck Short Sleeve",
+      "price": 4999,
+      "description": "Material composition52% Cotton And 48% Polyester & Elastane\r\nLengthFull Length\r\nCare instructionsMachine Wash\r\nClosure typePull On\r\nStyleCo-ord Set\r\nBottom stylePant\r\nCountry of OriginIndia\r\n\u2714 Trendy Korean Style Nightwear for Women & Girls \u2013 Stylish two-piece night suit inspired by Korean fashion trends, featuring cute prints and modern designs that give a youthful, elegant, and chic look. Perfect for women and girls who love fashionable, comfortable, sleepwear and loungewear.\r\n\u2714 Premium Soft Cotton Fabric for All-Night Comfort \u2013 Made from breathable, skin-friendly cotton that feels soft against the skin. Lightweight and comfortable, this nightwear ensures cool, relaxed, and cozy sleep every night, making it perfect for year-round use.\r\n\u2714 Complete Two-Piece Pajama Set with Relaxed Fit \u2013 Includes a comfortable top and matching elastic-waist pajama designed for free movement and a flattering fit. Ideal for sleeping, lounging at home, relaxing indoors, or casual wear, providing ultimate comfort without compromising style.\r\n\u2714 Versatile Sleepwear, Loungewear & Home Wear \u2013 Perfect for nightwear, indoor wear, lazy weekends, work-from-home comfort, pajama parties, or casual relaxation. This Korean-style cotton night suit doubles as stylish homewear, making it a practical and trendy wardrobe essential.\r\n\u2714 Durable, Easy-Care & Perfect Gift Option \u2013 Crafted with long-lasting fabric and strong stitching that retains softness and color. A thoughtful gift for women and girls on birthdays, anniversaries, festivals, or special occasions, combining style, comfort, and practicality in one nightwear set.\r\nAdditional Information\r\nManufacturerSHEINZY, SHIENZY\r\nPackerSHEINZY\r\nItem Weight300 g\r\nItem Dimensions LxWxH30 x 10 x 3 Centimeters\r\nNet Quantity1 Count\r\nIncluded ComponentsPants, T-Shirt\r\nGeneric Namewomen's pajama set",
+      "image": "product_images/61-8mCdNFxL._SY741_.jpg",
+      "category_id": 4,
+      "discount_percentage": 80,
+      "has_size": 1
+    },
+    {
+      "id": 23,
+      "name": "Alan Jones Clothing Women's Solid Zipper",
+      "price": 1799,
+      "description": "Material composition60% Cotton, 40% Polyester\r\nSleeve typeLong Sleeve\r\nMaterial typeCotton Blend\r\nFit typeRegular\r\nPremium Cotton Blend Fabric \u2013 Crafted from a cozy and durable 60% cotton, 40% polyester blend that provides warmth, breathability, and long-lasting comfort.\r\nStylish Solid Color Design \u2013 Minimalist yet fashionable solid hue makes it easy to pair with jeans, joggers, or leggings for a clean, everyday look.\r\nFunctional Front Zipper \u2013 Equipped with a smooth, high-quality zipper designed for durability and ease of use, ideal for layering in changing weather.\r\nComfortable Lined Hood \u2013 Features a hood with soft cotton lining to keep you warm and comfortable during chilly days or morning workouts.\r\nRibbed Hems for a Snug Fit \u2013 Ribbed cuffs and bottom hem offer a secure fit, helping to lock in warmth while maintaining the sweatshirt's shape over time\r\nLengthStandard Length\r\nNeck styleHooded Neck\r\nCountry of OriginIndia",
+      "image": "product_images/71NSIFdknkL._SX679_.jpg",
+      "category_id": 4,
+      "discount_percentage": 65,
+      "has_size": 1
+    },
+    {
+      "id": 24,
+      "name": "Atomberg Zenova Mixer Grinder for Kitchen with Intelligent BLDC Motor",
+      "price": 7999,
+      "description": "Brand\tatomberg\r\nColour\tRed Wine\r\nProduct Dimensions\t36.5D x 33.5W x 29.1H Centimeters\r\nMaterial\tAcrylonitrile Butadiene Styrene (ABS)\r\nSpecial Feature\tCoarse Mode, Advanced Safety Features, Sleek Design,Adjustable Speed Control\r\nCapacity\t1.5 Liters\r\nVoltage\t230 Volts\r\nWattage\t550 Watts\r\nControls Type\tKnob Control\r\nItem Weight\t6 Kilograms\r\nPowered by an Intelligent BLDC Motor Atomberg Zenova Mixer Grinder grinds every ingredient that a 1000W Mixer can like turmeric, garam masala, and coffee beans\r\nUnique Coarse Mode for sil-batta/ammikallu like texture \u2013 perfect for coarse chutneys, dips, and masalas with authentic taste\r\nIncludes 4 high quality, multifunctional jars \u2013 1.5L liquidizing, 1L multipurpose, 0.5L chutney jar & spice grinding jar, and a unique 0.5L chopper jar for all kitchen tasks\r\nHands-free operation with anti-gravity lid locks \u2013 convenient, spill-free, and secure during every use.\r\nEquipped with advanced safety features - jar lock detection, fault LED indication, and no auto-restart after power cuts \u2013 designed for safe, worry-free experience\r\nVentless body design \u2013 prevents dust, pests, and moisture; makes cleaning hassle-free and extends durability.\r\nCompact and modern \u2013 smart design with energy-efficient motor, a sleek alternative to bulky 1000 Watt mixer grinders\r\n3-year warranty- comes with a standard 2-year warranty. An additional 1-year warranty can easily be availed by registering your purchase on the Atomberg website, in a simple three-step process",
+      "image": "product_images/713NgjFAjlL._SX679_.jpg",
+      "category_id": 8,
+      "discount_percentage": 10,
+      "has_size": 0
+    },
+    {
+      "id": 25,
+      "name": "PHILIPS Air Fryer NA130, uses up to 90% less fat, 1700W,",
+      "price": 7979,
+      "description": "Special Feature\tTemperature Control\r\nProduct Dimensions\t40.4D x 30.9W x 30.8H Centimeters\r\nColour\tBlack\r\nCapacity\tPhilips Airfryer NA130/00 (Extra Large, 6.2 L) lets you cook great tasting food with up to 90% less fat*\r\nPatented Rapid Air technology with unique starfish design pan ensures evenly fried results without flipping the food\r\nPreset menus for 12 different ways of cooking - Fry, bake, grill, roast and more. Easily adjust time and temperature \u2014 including reheating, defrosting and dehydrating\r\nExplore 100+ recipes that you love to cook daily with HomeID app\r\nEnergy Saving - with consumption of 70% lesser energy vs a conventional oven*\r\nPowerful 1700W Motor - that enables consistent and even airflow throw performance\r\nPhilips is India\u2019s No.1 air fryer brand (Source: Euromonitor International Limited; Consumer Appliances 2022ED)\r\nInventor of the Airfryer6.2 Liters\r\nMaterial\tAluminium",
+      "image": "product_images/51HxcDMFMUL._SX679_.jpg",
+      "category_id": 8,
+      "discount_percentage": 13,
+      "has_size": 0
+    },
+    {
+      "id": 26,
+      "name": "Nike Mens Downshifter 14 Running Shoes",
+      "price": 4895,
+      "description": "WeightWeight\r\n800 Grams\r\nBest forBest for\r\nRunning\r\nCushionCushion\r\nCushioned\r\nMore about this product\r\nNike Downshifter 14 Men's Road Running Shoe Kick your stride into another gear in the Downshifter 14. We increased the amount of cushioning in the midsole for more comfort and responsiveness than the previous iteration. Plus, the upper is made with an open-hole mesh for optimal breathability and a midfoot band gives you a locked-in feel. Engineered open-hole mesh on the upper offers breathability. We increased the amount of cushioning in the midsole for more comfort and bounce. Internal fit band offers containment around the midfoot for a locked-in feel.\r\nBuilt with premium lightweight materials for enhanced durability and a natural feel.\r\nThe breathable upper design promotes airflow to keep your feet cool during Running.\r\nThe durable rubber outsole features a traction-focused pattern for multi-surface grip.",
+      "image": "product_images/61U2wikE1gL._AC_SX679_.jpg",
+      "category_id": 4,
+      "discount_percentage": 15,
+      "has_size": 1
+    },
+    {
+      "id": 27,
+      "name": "USPA U.S. Polo Assn Men|Bruce|Black Stylish Casual Sneaker Shoes for Man",
+      "price": 5000,
+      "description": "Material typePolyurethane\r\nClosure typeLace-Up\r\nHeel typeNo Heel\r\nWater resistance levelNot Water Resistant\r\nSole materialRubber\r\nStyleSneaker\r\nCountry of OriginIndia\r\nManufacturerArvind Lifestyle Brands Limited, Arvind Lifestyle Brands Limited, 8th Floor, DU PARCTrinity, Trinity Circle, No.17, M.G Road, Bangalore, Karnataka-560001\r\nPackerArvind Lifestyle Brands Limited, 8th Floor, DU PARCTrinity, Trinity Circle, No.17, M.G Road, Bangalore, Karnataka-560001\r\nImporterArvind Lifestyle Brands Limited, 8th Floor, DU PARCTrinity, Trinity Circle, No.17, M.G Road, Bangalore, Karnataka-560001\r\nItem Weight600 g\r\nItem Dimensions LxWxH34.3 x 21.6 x 12.7 Centimeters\r\nNet Quantity1 Set\r\nGeneric NameSneaker",
+      "image": "product_images/61p13trRJBL._SY625_.jpg",
+      "category_id": 4,
+      "discount_percentage": 48,
+      "has_size": 1
+    },
+    {
+      "id": 28,
+      "name": "Butterfly Rhino Plus 2 Litres Table-Top Wet Grinder",
+      "price": 8825,
+      "description": "Powerful single phase high torque motor of 150 Watts\r\nDual Cylindrical grinding stones for uniform grinding pressure and 4 way grinding system\r\nShock proof ABS body and detachable stainless steel drum\r\nTransparent dust-cover lids made of polycarbonate material\r\nIncludes additional accessories of Atta kneader & Coconut scrapped with collector\r\nEasy to Clean and Maintain",
+      "image": "product_images/61EdZ1gVDlL._SX679_.jpg",
+      "category_id": 8,
+      "discount_percentage": 50,
+      "has_size": 0
+    }
+  ],
+  "product_category": [
+    {
+      "id": 1,
+      "name": "Mobiles"
+    },
+    {
+      "id": 2,
+      "name": "Laptops"
+    },
+    {
+      "id": 3,
+      "name": "Television"
+    },
+    {
+      "id": 4,
+      "name": "Fashion"
+    },
+    {
+      "id": 6,
+      "name": "Sports"
+    },
+    {
+      "id": 8,
+      "name": "Home-Kitchen"
+    }
+  ],
+  "product_cart": [
+    {
+      "id": 2,
+      "user_id": 1
+    },
+    {
+      "id": 3,
+      "user_id": 7
+    },
+    {
+      "id": 5,
+      "user_id": 10
+    },
+    {
+      "id": 6,
+      "user_id": 11
+    },
+    {
+      "id": 7,
+      "user_id": 12
+    },
+    {
+      "id": 8,
+      "user_id": 13
+    }
+  ],
+  "product_cartitem": [
+    {
+      "id": 44,
+      "quantity": 1,
+      "cart_id": 5,
+      "product_id": 3,
+      "size_id": null
+    }
+  ],
+  "product_order": [
+    {
+      "id": 1,
+      "total_price": 679.65,
+      "status": "Pending",
+      "created_at": "2026-07-19 10:26:59.372933",
+      "user_id": 13,
+      "address": "cheruvatta",
+      "name": "Rathin Lal",
+      "phone": "9876543210",
+      "payment_id": null,
+      "payment_status": "Pending",
+      "razorpay_order_id": null,
+      "refund_status": "Not Applicable",
+      "district": "Kozhikode",
+      "pincode": "673012",
+      "postoffice": "Marikunnu",
+      "state": "Kerala",
+      "delivery_charge": 50
+    }
+  ],
+  "product_orderitem": [
+    {
+      "id": 1,
+      "quantity": 1,
+      "price": 629.65,
+      "order_id": 1,
+      "product_id": 23,
+      "size_id": 3
+    }
+  ],
+  "product_profile": [
+    {
+      "id": 6,
+      "phone": "9876543210",
+      "user_id": 7
+    },
+    {
+      "id": 9,
+      "phone": "9072484546",
+      "user_id": 10
+    },
+    {
+      "id": 10,
+      "phone": "8086203892",
+      "user_id": 1
+    },
+    {
+      "id": 11,
+      "phone": "9046592631",
+      "user_id": 11
+    },
+    {
+      "id": 12,
+      "phone": "8989868485",
+      "user_id": 12
+    },
+    {
+      "id": 13,
+      "phone": "9045768932",
+      "user_id": 13
+    }
+  ],
+  "product_wishlist": [
+    {
+      "id": 1,
+      "product_id": 3,
+      "user_id": 2
+    },
+    {
+      "id": 2,
+      "product_id": 3,
+      "user_id": 1
+    },
+    {
+      "id": 5,
+      "product_id": 3,
+      "user_id": 7
+    },
+    {
+      "id": 6,
+      "product_id": 5,
+      "user_id": 8
+    },
+    {
+      "id": 7,
+      "product_id": 6,
+      "user_id": 12
+    },
+    {
+      "id": 13,
+      "product_id": 6,
+      "user_id": 10
+    }
+  ],
+  "product_review": [
+    {
+      "id": 1,
+      "rating": 4,
+      "comment": "nice",
+      "created_at": "2026-06-29 14:40:36.739806",
+      "product_id": 3,
+      "user_id": 7
+    },
+    {
+      "id": 2,
+      "rating": 5,
+      "comment": "good product",
+      "created_at": "2026-06-29 14:53:44.269966",
+      "product_id": 3,
+      "user_id": 8
+    },
+    {
+      "id": 4,
+      "rating": 5,
+      "comment": "nice product",
+      "created_at": "2026-06-29 17:02:45.587445",
+      "product_id": 5,
+      "user_id": 8
+    },
+    {
+      "id": 5,
+      "rating": 4,
+      "comment": "nice",
+      "created_at": "2026-07-07 09:04:14.450439",
+      "product_id": 6,
+      "user_id": 12
+    },
+    {
+      "id": 6,
+      "rating": 5,
+      "comment": "assd",
+      "created_at": "2026-07-09 14:58:17.917349",
+      "product_id": 5,
+      "user_id": 13
+    },
+    {
+      "id": 7,
+      "rating": 4,
+      "comment": "nice",
+      "created_at": "2026-07-09 19:34:51.064071",
+      "product_id": 9,
+      "user_id": 13
+    },
+    {
+      "id": 8,
+      "rating": 5,
+      "comment": "good product",
+      "created_at": "2026-07-13 10:05:07.070266",
+      "product_id": 6,
+      "user_id": 10
+    }
+  ],
+  "product_size": [
+    {
+      "id": 1,
+      "name": "S"
+    },
+    {
+      "id": 2,
+      "name": "M"
+    },
+    {
+      "id": 3,
+      "name": "L"
+    },
+    {
+      "id": 4,
+      "name": "XL"
+    },
+    {
+      "id": 5,
+      "name": "XXL"
+    },
+    {
+      "id": 6,
+      "name": "5"
+    },
+    {
+      "id": 7,
+      "name": "6"
+    },
+    {
+      "id": 8,
+      "name": "7"
+    },
+    {
+      "id": 9,
+      "name": "8"
+    },
+    {
+      "id": 10,
+      "name": "9"
+    },
+    {
+      "id": 11,
+      "name": "10"
+    },
+    {
+      "id": 12,
+      "name": "11"
+    },
+    {
+      "id": 13,
+      "name": "XS"
+    }
+  ]
+}
